@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AA9457B-2EB0-41E4-8676-C3B8A1465821}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GESIDENTITY</RootNamespace>
+    <AssemblyName>GESIDENTITY</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Template.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Decoder">
+      <HintPath>Lib\Decoder.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Pivot.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Pivot.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.EntityFramework60">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.EntityFramework60.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView.Export">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.GridView.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Pivot">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.Pivot.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.PivotFieldList">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.PivotFieldList.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.ScheduleView">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Rtf, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Xaml, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf, Version=2015.2.623.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Scheduling.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q2 2015\Binaries\WPF45\Telerik.Windows.Scheduling.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Models\Bases.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BI.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departements.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Districts.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Federations.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FonctionParti.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fonctions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Identifications.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDMilitants.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NaturePiece.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Organes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Parametres.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Permissions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Regions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sections.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilisateurs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administrations\UtilisateursModules\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administrations\UtilisateursModules\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administrations\UtilisateursModules\UtlisateurModuleView.xaml.cs">
+      <DependentUpon>UtlisateurModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administrations\UtilisateursModules\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\Administrations\UtilisateursModules\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\Administrations\UtilisateursModules\ViewModels\HierarchyConverter.cs" />
+    <Compile Include="Modules\Administrations\UtilisateursModules\ViewModels\ItemContainerStyleSelector.cs" />
+    <Compile Include="Modules\Administrations\UtilisateursModules\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\Administrations\UtilisateursModules\ViewModels\Types.cs" />
+    <Compile Include="Modules\Administrations\UtilisateursModules\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Bases\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Bases\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Bases\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Bases\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Bases\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Bases\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Bases\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Departements\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Departements\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Departements\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Departements\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Departements\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Departements\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Departements\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Districts\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Districts\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Districts\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Districts\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Districts\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Districts\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Districts\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Federations\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Federations\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Federations\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Federations\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Federations\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Federations\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Federations\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\FonctionParti\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\FonctionParti\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\FonctionParti\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\FonctionParti\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\FonctionParti\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\FonctionParti\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\FonctionParti\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Organes\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Organes\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Organes\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Organes\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Organes\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Organes\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Organes\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Regions\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Regions\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Regions\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Regions\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Regions\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Regions\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Regions\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Sections\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Sections\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Sections\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Sections\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Sections\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Sections\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Sections\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\Fonctions\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Fonctions\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\Fonctions\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\Fonctions\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\Fonctions\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\Fonctions\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\Fonctions\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\BackOffice\NaturePiece\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\NaturePiece\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\BackOffice\NaturePiece\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\BackOffice\NaturePiece\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\BackOffice\NaturePiece\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\BackOffice\NaturePiece\ViewModels\Types.cs" />
+    <Compile Include="Modules\BackOffice\NaturePiece\ViewModels\ViewModel.cs" />
+    <Compile Include="Modules\FrontOffice\Militants\Recensement.xaml.cs">
+      <DependentUpon>Recensement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\FrontOffice\Militants\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\FrontOffice\Militants\EditRecensement.xaml.cs">
+      <DependentUpon>EditRecensement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\FrontOffice\Militants\InsertData.xaml.cs">
+      <DependentUpon>InsertData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\FrontOffice\Militants\ViewModels\EditorTemplateRule.cs" />
+    <Compile Include="Modules\FrontOffice\Militants\ViewModels\EntityObjectToInt.cs" />
+    <Compile Include="Modules\FrontOffice\Militants\ViewModels\MyEditorTemplateSelector.cs" />
+    <Compile Include="Modules\FrontOffice\Militants\ViewModels\Types.cs" />
+    <Compile Include="Modules\FrontOffice\Militants\ViewModels\ViewModel.cs" />
+    <Compile Include="Rapports\Viewers\ListeRapportView.xaml.cs">
+      <DependentUpon>ListeRapportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rapports\Viewers\RapportWindows.xaml.cs">
+      <DependentUpon>RapportWindows.xaml</DependentUpon>
+    </Compile>
+    <Page Include="LoginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="COMMON\ObservableObject.cs" />
+    <Compile Include="COMMON\PasswordHelper.cs" />
+    <Compile Include="COMMON\PropertySupport.cs" />
+    <Compile Include="COMMON\RelayCommand.cs" />
+    <Compile Include="LoginControl.xaml.cs">
+      <DependentUpon>LoginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Modules\Administrations\UtilisateursModules\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administrations\UtilisateursModules\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administrations\UtilisateursModules\UtlisateurModuleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Bases\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Bases\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Departements\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Departements\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Districts\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Districts\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Federations\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Federations\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\FonctionParti\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\FonctionParti\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Organes\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Organes\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Regions\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Regions\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Sections\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Sections\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Fonctions\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\Fonctions\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\NaturePiece\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\BackOffice\NaturePiece\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\FrontOffice\Militants\Recensement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\FrontOffice\Militants\DataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\FrontOffice\Militants\EditRecensement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\FrontOffice\Militants\InsertData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Rapports\Viewers\ListeRapportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Rapports\Viewers\RapportWindows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Windows8\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Windows8\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Windows8\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Windows8\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Windows8\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\GlobalData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Content Include="Rapports\Reports\ListedesMilitants.trdx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rapports\Reports\AllMilitants.trdx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rapports\Reports\ListedesMilitantsByFonction.trdx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rapports\Reports\ListedesMilitantsByFonctionParti.trdx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rapports\Reports\ListedesMilitantsByOrganes.trdx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Menu\Business-Man.png" />
+    <Resource Include="Images\Menu\Central African-CFA Franc.png" />
+    <Resource Include="Images\Menu\Documents-01.png" />
+    <Resource Include="Images\Menu\Dollar-Coin.png" />
+    <Resource Include="Images\Menu\Euro-Coin.png" />
+    <Resource Include="Images\Menu\Exchange - 02.png" />
+    <Resource Include="Images\Menu\Group-Add.png" />
+    <Resource Include="Images\Menu\Money-Coin.png" />
+    <Resource Include="Images\Menu\Money-Transfer.png" />
+    <Resource Include="Images\Menu\Payments-01-WF.png" />
+    <Resource Include="Images\Menu\Stock-Exchange-06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\Template.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Apps.png" />
+    <Resource Include="Images\Template.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Template.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\CRUD\Add.png" />
+    <Resource Include="Images\CRUD\Edit.png" />
+    <Resource Include="Images\CRUD\Filter-Standard.png" />
+    <Resource Include="Images\CRUD\Minus.png" />
+    <Resource Include="Images\CRUD\Reload.png" />
+    <Resource Include="Images\CRUD\Sort-Ascending-01.png" />
+    <Resource Include="Images\CRUD\Sort-Ascending.png" />
+    <Resource Include="Images\CRUD\Sort-Descending-01.png" />
+    <Resource Include="Images\CRUD\Sort-Descending.png" />
+    <Resource Include="Images\Navigation\Cancel.png" />
+    <Resource Include="Images\Navigation\Submit-01.png" />
+    <Resource Include="Images\Navigation\Submit-02.png" />
+    <Resource Include="Images\Template.ico" />
+    <Resource Include="Images\Menu\Customer.png" />
+    <Resource Include="Images\CRUD\Payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\settings.png" />
+    <Resource Include="Images\BG1.jpg" />
+    <Resource Include="Images\BG2.jpg" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

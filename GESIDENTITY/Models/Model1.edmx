@@ -1,0 +1,1387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GESIDENTITYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bases">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSection" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" />
+          <Property Name="Path" Type="varchar" MaxLength="250" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="int" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Departements">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idRegion" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Federations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDepartement" Type="int" />
+          <Property Name="idRegion" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FonctionParti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Cle" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+          <Property Name="idOrgane" Type="int" />
+        </EntityType>
+        <EntityType Name="Fonctions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HasPermission">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+            <PropertyRef Name="IdPermission" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="int" Nullable="false" />
+          <Property Name="IdPermission" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Identifications">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDistrict" Type="int" />
+          <Property Name="idRegion" Type="int" />
+          <Property Name="idDepartement" Type="int" />
+          <Property Name="idFederation" Type="int" />
+          <Property Name="idSection" Type="int" />
+          <Property Name="idBase" Type="int" />
+          <Property Name="idUtilisateur" Type="int" />
+          <Property Name="NoIdent" Type="varchar" MaxLength="150" />
+          <Property Name="DateIdent" Type="date" />
+          <Property Name="Nom" Type="varchar" MaxLength="250" />
+          <Property Name="Prenoms" Type="varchar" MaxLength="250" />
+          <Property Name="Sexe" Type="char" MaxLength="1" />
+          <Property Name="DateNaissance" Type="date" />
+          <Property Name="LieuNaissance" Type="varchar" MaxLength="250" />
+          <Property Name="Domicile" Type="varchar" MaxLength="250" />
+          <Property Name="Quartier" Type="varchar" MaxLength="250" />
+          <Property Name="idNaturePiece" Type="int" />
+          <Property Name="NoPiece" Type="varchar" MaxLength="250" />
+          <Property Name="DateValidite" Type="date" />
+          <Property Name="idActiviteProfessionel" Type="int" />
+          <Property Name="Telephone" Type="varchar" MaxLength="250" />
+          <Property Name="Mobile1" Type="varchar" MaxLength="250" />
+          <Property Name="Mobile2" Type="varchar" MaxLength="250" />
+          <Property Name="Email" Type="varchar" MaxLength="250" />
+          <Property Name="Structure" Type="varchar" MaxLength="250" />
+          <Property Name="idFonction" Type="int" />
+          <Property Name="QualiteDe" Type="varchar" MaxLength="250" />
+          <Property Name="DepuisLe" Type="date" />
+          <Property Name="idDerniereFonction" Type="int" />
+          <Property Name="DateDerniereFonc" Type="date" />
+          <Property Name="PosteDerniereFonc" Type="varchar" MaxLength="250" />
+          <Property Name="DateAdhesion" Type="date" />
+          <Property Name="Observations" Type="text" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IDMilitants">
+          <Key>
+            <PropertyRef Name="idDistrict" />
+            <PropertyRef Name="idRegion" />
+            <PropertyRef Name="idFederation" />
+          </Key>
+          <Property Name="idDistrict" Type="int" Nullable="false" />
+          <Property Name="idRegion" Type="int" Nullable="false" />
+          <Property Name="idFederation" Type="int" Nullable="false" />
+          <Property Name="IDENTID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="NaturePiece">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Organes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+          <Property Name="Cle" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Parametres">
+          <Key>
+            <PropertyRef Name="idParametre" />
+          </Key>
+          <Property Name="idParametre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDENTID" Type="bigint" />
+          <Property Name="DT" Type="bigint" />
+          <Property Name="RG" Type="bigint" />
+          <Property Name="DP" Type="bigint" />
+          <Property Name="FD" Type="bigint" />
+          <Property Name="SC" Type="bigint" />
+          <Property Name="BA" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="IdPermission" />
+          </Key>
+          <Property Name="IdPermission" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="idParent" Type="int" />
+          <Property Name="Path" Type="varchar" MaxLength="250" />
+          <Property Name="Position" Type="int" />
+          <Property Name="EstRapport" Type="bit" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDistrict" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sections">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idFederation" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="idUtilisateur" />
+          </Key>
+          <Property Name="idUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" />
+          <Property Name="Prenoms" Type="varchar" MaxLength="50" />
+          <Property Name="Login" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Bases_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="0..1" />
+          <End Role="Bases" Type="Self.Bases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bases">
+              <PropertyRef Name="idSection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departements_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+          <End Role="Departements" Type="Self.Departements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Departements">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Federations_Departements">
+          <End Role="Departements" Type="Self.Departements" Multiplicity="0..1" />
+          <End Role="Federations" Type="Self.Federations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departements">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Federations">
+              <PropertyRef Name="idDepartement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Federations_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+          <End Role="Federations" Type="Self.Federations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Federations">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FonctionParti_Organes">
+          <End Role="Organes" Type="Self.Organes" Multiplicity="0..1" />
+          <End Role="FonctionParti" Type="Self.FonctionParti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FonctionParti">
+              <PropertyRef Name="idOrgane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HasPermission_Permissions">
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="1" />
+          <End Role="HasPermission" Type="Self.HasPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="IdPermission" />
+            </Principal>
+            <Dependent Role="HasPermission">
+              <PropertyRef Name="IdPermission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_HasPermission_Utilisateurs">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="1" />
+          <End Role="HasPermission" Type="Self.HasPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="HasPermission">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Bases">
+          <End Role="Bases" Type="Self.Bases" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bases">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idBase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Departements">
+          <End Role="Departements" Type="Self.Departements" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departements">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idDepartement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Federations">
+          <End Role="Federations" Type="Self.Federations" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Federations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idFederation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_FonctionParti">
+          <End Role="FonctionParti" Type="Self.FonctionParti" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FonctionParti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_FonctionParti1">
+          <End Role="FonctionParti" Type="Self.FonctionParti" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FonctionParti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idDerniereFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Fonctions">
+          <End Role="Fonctions" Type="Self.Fonctions" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fonctions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idActiviteProfessionel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_NaturePiece">
+          <End Role="NaturePiece" Type="Self.NaturePiece" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NaturePiece">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idNaturePiece" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idSection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Utilisateurs">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="0..1" />
+          <End Role="Identifications" Type="Self.Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Permissions_Permissions">
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="0..1" />
+          <End Role="Permissions1" Type="Self.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="IdPermission" />
+            </Principal>
+            <Dependent Role="Permissions1">
+              <PropertyRef Name="idParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regions_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="0..1" />
+          <End Role="Regions" Type="Self.Regions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="idDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_Federations">
+          <End Role="Federations" Type="Self.Federations" Multiplicity="0..1" />
+          <End Role="Sections" Type="Self.Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Federations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="idFederation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GESIDENTITYModelStoreContainer">
+          <EntitySet Name="Bases" EntityType="Self.Bases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BI" EntityType="Self.BI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departements" EntityType="Self.Departements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Federations" EntityType="Self.Federations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FonctionParti" EntityType="Self.FonctionParti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fonctions" EntityType="Self.Fonctions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HasPermission" EntityType="Self.HasPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Identifications" EntityType="Self.Identifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IDMilitants" EntityType="Self.IDMilitants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NaturePiece" EntityType="Self.NaturePiece" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organes" EntityType="Self.Organes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parametres" EntityType="Self.Parametres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bases_Sections" Association="Self.FK_Bases_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Bases" EntitySet="Bases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departements_Regions" Association="Self.FK_Departements_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Departements" EntitySet="Departements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Federations_Departements" Association="Self.FK_Federations_Departements">
+            <End Role="Departements" EntitySet="Departements" />
+            <End Role="Federations" EntitySet="Federations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Federations_Regions" Association="Self.FK_Federations_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Federations" EntitySet="Federations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FonctionParti_Organes" Association="Self.FK_FonctionParti_Organes">
+            <End Role="Organes" EntitySet="Organes" />
+            <End Role="FonctionParti" EntitySet="FonctionParti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HasPermission_Permissions" Association="Self.FK_HasPermission_Permissions">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="HasPermission" EntitySet="HasPermission" />
+          </AssociationSet>
+          <AssociationSet Name="fk_HasPermission_Utilisateurs" Association="Self.fk_HasPermission_Utilisateurs">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="HasPermission" EntitySet="HasPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Bases" Association="Self.FK_Identifications_Bases">
+            <End Role="Bases" EntitySet="Bases" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Departements" Association="Self.FK_Identifications_Departements">
+            <End Role="Departements" EntitySet="Departements" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Districts" Association="Self.FK_Identifications_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Federations" Association="Self.FK_Identifications_Federations">
+            <End Role="Federations" EntitySet="Federations" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_FonctionParti" Association="Self.FK_Identifications_FonctionParti">
+            <End Role="FonctionParti" EntitySet="FonctionParti" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_FonctionParti1" Association="Self.FK_Identifications_FonctionParti1">
+            <End Role="FonctionParti" EntitySet="FonctionParti" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Fonctions" Association="Self.FK_Identifications_Fonctions">
+            <End Role="Fonctions" EntitySet="Fonctions" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_NaturePiece" Association="Self.FK_Identifications_NaturePiece">
+            <End Role="NaturePiece" EntitySet="NaturePiece" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Regions" Association="Self.FK_Identifications_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Sections" Association="Self.FK_Identifications_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Utilisateurs" Association="Self.FK_Identifications_Utilisateurs">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Permissions_Permissions" Association="Self.fk_Permissions_Permissions">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="Permissions1" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regions_Districts" Association="Self.FK_Regions_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_Federations" Association="Self.FK_Sections_Federations">
+            <End Role="Federations" EntitySet="Federations" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GESIDENTITYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GESIDENTITYEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bases" EntityType="GESIDENTITYModel.Bases" />
+          <EntitySet Name="BI" EntityType="GESIDENTITYModel.BI" />
+          <EntitySet Name="Departements" EntityType="GESIDENTITYModel.Departements" />
+          <EntitySet Name="Districts" EntityType="GESIDENTITYModel.Districts" />
+          <EntitySet Name="Federations" EntityType="GESIDENTITYModel.Federations" />
+          <EntitySet Name="FonctionParti" EntityType="GESIDENTITYModel.FonctionParti" />
+          <EntitySet Name="Fonctions" EntityType="GESIDENTITYModel.Fonctions" />
+          <EntitySet Name="Parametres" EntityType="GESIDENTITYModel.Parametres" />
+          <EntitySet Name="Permissions" EntityType="GESIDENTITYModel.Permissions" />
+          <EntitySet Name="Regions" EntityType="GESIDENTITYModel.Regions" />
+          <EntitySet Name="Sections" EntityType="GESIDENTITYModel.Sections" />
+          <EntitySet Name="Utilisateurs" EntityType="GESIDENTITYModel.Utilisateurs" />
+          <AssociationSet Name="FK_Bases_Sections" Association="GESIDENTITYModel.FK_Bases_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Bases" EntitySet="Bases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departements_Regions" Association="GESIDENTITYModel.FK_Departements_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Departements" EntitySet="Departements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Federations_Departements" Association="GESIDENTITYModel.FK_Federations_Departements">
+            <End Role="Departements" EntitySet="Departements" />
+            <End Role="Federations" EntitySet="Federations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regions_Districts" Association="GESIDENTITYModel.FK_Regions_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Federations_Regions" Association="GESIDENTITYModel.FK_Federations_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Federations" EntitySet="Federations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_Federations" Association="GESIDENTITYModel.FK_Sections_Federations">
+            <End Role="Federations" EntitySet="Federations" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Permissions_Permissions" Association="GESIDENTITYModel.fk_Permissions_Permissions">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="Permissions1" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="HasPermission" Association="GESIDENTITYModel.HasPermission">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+          </AssociationSet>
+          <EntitySet Name="NaturePiece" EntityType="GESIDENTITYModel.NaturePiece" />
+          <EntitySet Name="Organes" EntityType="GESIDENTITYModel.Organes" />
+          <AssociationSet Name="FK_FonctionParti_Organes" Association="GESIDENTITYModel.FK_FonctionParti_Organes">
+            <End Role="Organes" EntitySet="Organes" />
+            <End Role="FonctionParti" EntitySet="FonctionParti" />
+          </AssociationSet>
+          <EntitySet Name="Identifications" EntityType="GESIDENTITYModel.Identifications" />
+          <AssociationSet Name="FK_Identifications_Bases" Association="GESIDENTITYModel.FK_Identifications_Bases">
+            <End Role="Bases" EntitySet="Bases" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Departements" Association="GESIDENTITYModel.FK_Identifications_Departements">
+            <End Role="Departements" EntitySet="Departements" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Districts" Association="GESIDENTITYModel.FK_Identifications_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Federations" Association="GESIDENTITYModel.FK_Identifications_Federations">
+            <End Role="Federations" EntitySet="Federations" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_FonctionParti" Association="GESIDENTITYModel.FK_Identifications_FonctionParti">
+            <End Role="FonctionParti" EntitySet="FonctionParti" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_FonctionParti1" Association="GESIDENTITYModel.FK_Identifications_FonctionParti1">
+            <End Role="FonctionParti" EntitySet="FonctionParti" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Fonctions" Association="GESIDENTITYModel.FK_Identifications_Fonctions">
+            <End Role="Fonctions" EntitySet="Fonctions" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_NaturePiece" Association="GESIDENTITYModel.FK_Identifications_NaturePiece">
+            <End Role="NaturePiece" EntitySet="NaturePiece" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Regions" Association="GESIDENTITYModel.FK_Identifications_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Sections" Association="GESIDENTITYModel.FK_Identifications_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifications_Utilisateurs" Association="GESIDENTITYModel.FK_Identifications_Utilisateurs">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Identifications" EntitySet="Identifications" />
+          </AssociationSet>
+          <EntitySet Name="IDMilitants" EntityType="GESIDENTITYModel.IDMilitants" />
+        </EntityContainer>
+        <EntityType Name="Bases">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSection" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sections" Relationship="GESIDENTITYModel.FK_Bases_Sections" FromRole="Bases" ToRole="Sections" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Bases" FromRole="Bases" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="BI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Int32" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Departements">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRegion" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Regions" Relationship="GESIDENTITYModel.FK_Departements_Regions" FromRole="Departements" ToRole="Regions" />
+          <NavigationProperty Name="Federations" Relationship="GESIDENTITYModel.FK_Federations_Departements" FromRole="Departements" ToRole="Federations" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Departements" FromRole="Departements" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Regions" Relationship="GESIDENTITYModel.FK_Regions_Districts" FromRole="Districts" ToRole="Regions" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Districts" FromRole="Districts" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="Federations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDepartement" Type="Int32" />
+          <Property Name="idRegion" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Departements" Relationship="GESIDENTITYModel.FK_Federations_Departements" FromRole="Federations" ToRole="Departements" />
+          <NavigationProperty Name="Regions" Relationship="GESIDENTITYModel.FK_Federations_Regions" FromRole="Federations" ToRole="Regions" />
+          <NavigationProperty Name="Sections" Relationship="GESIDENTITYModel.FK_Sections_Federations" FromRole="Federations" ToRole="Sections" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Federations" FromRole="Federations" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="FonctionParti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idOrgane" Type="Int32" />
+          <NavigationProperty Name="Organes" Relationship="GESIDENTITYModel.FK_FonctionParti_Organes" FromRole="FonctionParti" ToRole="Organes" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_FonctionParti" FromRole="FonctionParti" ToRole="Identifications" />
+          <NavigationProperty Name="Identifications1" Relationship="GESIDENTITYModel.FK_Identifications_FonctionParti1" FromRole="FonctionParti" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="Fonctions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Fonctions" FromRole="Fonctions" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="Parametres">
+          <Key>
+            <PropertyRef Name="idParametre" />
+          </Key>
+          <Property Name="idParametre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDENTID" Type="Int64" />
+          <Property Name="DT" Type="Int64" />
+          <Property Name="RG" Type="Int64" />
+          <Property Name="DP" Type="Int64" />
+          <Property Name="FD" Type="Int64" />
+          <Property Name="SC" Type="Int64" />
+          <Property Name="BA" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="IdPermission" />
+          </Key>
+          <Property Name="IdPermission" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idParent" Type="Int32" />
+          <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Int32" />
+          <Property Name="EstRapport" Type="Boolean" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Permissions1" Relationship="GESIDENTITYModel.fk_Permissions_Permissions" FromRole="Permissions" ToRole="Permissions1" />
+          <NavigationProperty Name="Permissions2" Relationship="GESIDENTITYModel.fk_Permissions_Permissions" FromRole="Permissions1" ToRole="Permissions" />
+          <NavigationProperty Name="Utilisateurs" Relationship="GESIDENTITYModel.HasPermission" FromRole="Permissions" ToRole="Utilisateurs" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDistrict" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Departements" Relationship="GESIDENTITYModel.FK_Departements_Regions" FromRole="Regions" ToRole="Departements" />
+          <NavigationProperty Name="Districts" Relationship="GESIDENTITYModel.FK_Regions_Districts" FromRole="Regions" ToRole="Districts" />
+          <NavigationProperty Name="Federations" Relationship="GESIDENTITYModel.FK_Federations_Regions" FromRole="Regions" ToRole="Federations" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Regions" FromRole="Regions" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="Sections">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idFederation" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bases" Relationship="GESIDENTITYModel.FK_Bases_Sections" FromRole="Sections" ToRole="Bases" />
+          <NavigationProperty Name="Federations" Relationship="GESIDENTITYModel.FK_Sections_Federations" FromRole="Sections" ToRole="Federations" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Sections" FromRole="Sections" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="idUtilisateur" />
+          </Key>
+          <Property Name="idUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prenoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Permissions" Relationship="GESIDENTITYModel.HasPermission" FromRole="Utilisateurs" ToRole="Permissions" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_Utilisateurs" FromRole="Utilisateurs" ToRole="Identifications" />
+        </EntityType>
+        <Association Name="FK_Bases_Sections">
+          <End Type="GESIDENTITYModel.Sections" Role="Sections" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Bases" Role="Bases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bases">
+              <PropertyRef Name="idSection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departements_Regions">
+          <End Type="GESIDENTITYModel.Regions" Role="Regions" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Departements" Role="Departements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Departements">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Federations_Departements">
+          <End Type="GESIDENTITYModel.Departements" Role="Departements" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Federations" Role="Federations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departements">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Federations">
+              <PropertyRef Name="idDepartement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regions_Districts">
+          <End Type="GESIDENTITYModel.Districts" Role="Districts" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Regions" Role="Regions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="idDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Federations_Regions">
+          <End Type="GESIDENTITYModel.Regions" Role="Regions" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Federations" Role="Federations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Federations">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_Federations">
+          <End Type="GESIDENTITYModel.Federations" Role="Federations" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Sections" Role="Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Federations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="idFederation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Permissions_Permissions">
+          <End Type="GESIDENTITYModel.Permissions" Role="Permissions" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Permissions" Role="Permissions1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="IdPermission" />
+            </Principal>
+            <Dependent Role="Permissions1">
+              <PropertyRef Name="idParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HasPermission">
+          <End Type="GESIDENTITYModel.Permissions" Role="Permissions" Multiplicity="*" />
+          <End Type="GESIDENTITYModel.Utilisateurs" Role="Utilisateurs" Multiplicity="*" />
+        </Association>
+        <EntityType Name="NaturePiece">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Identifications" Relationship="GESIDENTITYModel.FK_Identifications_NaturePiece" FromRole="NaturePiece" ToRole="Identifications" />
+        </EntityType>
+        <EntityType Name="Organes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FonctionParti" Relationship="GESIDENTITYModel.FK_FonctionParti_Organes" FromRole="Organes" ToRole="FonctionParti" />
+        </EntityType>
+        <Association Name="FK_FonctionParti_Organes">
+          <End Type="GESIDENTITYModel.Organes" Role="Organes" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.FonctionParti" Role="FonctionParti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FonctionParti">
+              <PropertyRef Name="idOrgane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Identifications">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDistrict" Type="Int32" />
+          <Property Name="idRegion" Type="Int32" />
+          <Property Name="idDepartement" Type="Int32" />
+          <Property Name="idFederation" Type="Int32" />
+          <Property Name="idSection" Type="Int32" />
+          <Property Name="idBase" Type="Int32" />
+          <Property Name="idUtilisateur" Type="Int32" />
+          <Property Name="NoIdent" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DateIdent" Type="DateTime" Precision="0" />
+          <Property Name="Nom" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Prenoms" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DateNaissance" Type="DateTime" Precision="0" />
+          <Property Name="LieuNaissance" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Domicile" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Quartier" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="idNaturePiece" Type="Int32" />
+          <Property Name="NoPiece" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DateValidite" Type="DateTime" Precision="0" />
+          <Property Name="idActiviteProfessionel" Type="Int32" />
+          <Property Name="Telephone" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Structure" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="idFonction" Type="Int32" />
+          <Property Name="QualiteDe" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DepuisLe" Type="DateTime" Precision="0" />
+          <Property Name="idDerniereFonction" Type="Int32" />
+          <Property Name="DateDerniereFonc" Type="DateTime" Precision="0" />
+          <Property Name="PosteDerniereFonc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdhesion" Type="DateTime" Precision="0" />
+          <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bases" Relationship="GESIDENTITYModel.FK_Identifications_Bases" FromRole="Identifications" ToRole="Bases" />
+          <NavigationProperty Name="Departements" Relationship="GESIDENTITYModel.FK_Identifications_Departements" FromRole="Identifications" ToRole="Departements" />
+          <NavigationProperty Name="Districts" Relationship="GESIDENTITYModel.FK_Identifications_Districts" FromRole="Identifications" ToRole="Districts" />
+          <NavigationProperty Name="Federations" Relationship="GESIDENTITYModel.FK_Identifications_Federations" FromRole="Identifications" ToRole="Federations" />
+          <NavigationProperty Name="FonctionParti" Relationship="GESIDENTITYModel.FK_Identifications_FonctionParti" FromRole="Identifications" ToRole="FonctionParti" />
+          <NavigationProperty Name="FonctionParti1" Relationship="GESIDENTITYModel.FK_Identifications_FonctionParti1" FromRole="Identifications" ToRole="FonctionParti" />
+          <NavigationProperty Name="Fonctions" Relationship="GESIDENTITYModel.FK_Identifications_Fonctions" FromRole="Identifications" ToRole="Fonctions" />
+          <NavigationProperty Name="NaturePiece" Relationship="GESIDENTITYModel.FK_Identifications_NaturePiece" FromRole="Identifications" ToRole="NaturePiece" />
+          <NavigationProperty Name="Regions" Relationship="GESIDENTITYModel.FK_Identifications_Regions" FromRole="Identifications" ToRole="Regions" />
+          <NavigationProperty Name="Sections" Relationship="GESIDENTITYModel.FK_Identifications_Sections" FromRole="Identifications" ToRole="Sections" />
+          <NavigationProperty Name="Utilisateurs" Relationship="GESIDENTITYModel.FK_Identifications_Utilisateurs" FromRole="Identifications" ToRole="Utilisateurs" />
+        </EntityType>
+        <Association Name="FK_Identifications_Bases">
+          <End Type="GESIDENTITYModel.Bases" Role="Bases" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bases">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idBase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Departements">
+          <End Type="GESIDENTITYModel.Departements" Role="Departements" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departements">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idDepartement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Districts">
+          <End Type="GESIDENTITYModel.Districts" Role="Districts" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Federations">
+          <End Type="GESIDENTITYModel.Federations" Role="Federations" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Federations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idFederation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_FonctionParti">
+          <End Type="GESIDENTITYModel.FonctionParti" Role="FonctionParti" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FonctionParti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_FonctionParti1">
+          <End Type="GESIDENTITYModel.FonctionParti" Role="FonctionParti" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FonctionParti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idDerniereFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Fonctions">
+          <End Type="GESIDENTITYModel.Fonctions" Role="Fonctions" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fonctions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idActiviteProfessionel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_NaturePiece">
+          <End Type="GESIDENTITYModel.NaturePiece" Role="NaturePiece" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NaturePiece">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idNaturePiece" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Regions">
+          <End Type="GESIDENTITYModel.Regions" Role="Regions" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Sections">
+          <End Type="GESIDENTITYModel.Sections" Role="Sections" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idSection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifications_Utilisateurs">
+          <End Type="GESIDENTITYModel.Utilisateurs" Role="Utilisateurs" Multiplicity="0..1" />
+          <End Type="GESIDENTITYModel.Identifications" Role="Identifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Identifications">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="IDMilitants">
+          <Key>
+            <PropertyRef Name="idDistrict" />
+            <PropertyRef Name="idRegion" />
+            <PropertyRef Name="idFederation" />
+          </Key>
+          <Property Name="idDistrict" Type="Int32" Nullable="false" />
+          <Property Name="idRegion" Type="Int32" Nullable="false" />
+          <Property Name="idFederation" Type="Int32" Nullable="false" />
+          <Property Name="IDENTID" Type="Int64" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GESIDENTITYModelStoreContainer" CdmEntityContainer="GESIDENTITYEntities">
+          <EntitySetMapping Name="Bases">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Bases">
+              <MappingFragment StoreEntitySet="Bases">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="idSection" ColumnName="idSection" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BI">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.BI">
+              <MappingFragment StoreEntitySet="BI">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departements">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Departements">
+              <MappingFragment StoreEntitySet="Departements">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Districts">
+              <MappingFragment StoreEntitySet="Districts">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Federations">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Federations">
+              <MappingFragment StoreEntitySet="Federations">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="idDepartement" ColumnName="idDepartement" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FonctionParti">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.FonctionParti">
+              <MappingFragment StoreEntitySet="FonctionParti">
+                <ScalarProperty Name="idOrgane" ColumnName="idOrgane" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Cle" ColumnName="Cle" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fonctions">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Fonctions">
+              <MappingFragment StoreEntitySet="Fonctions">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parametres">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Parametres">
+              <MappingFragment StoreEntitySet="Parametres">
+                <ScalarProperty Name="BA" ColumnName="BA" />
+                <ScalarProperty Name="SC" ColumnName="SC" />
+                <ScalarProperty Name="FD" ColumnName="FD" />
+                <ScalarProperty Name="DP" ColumnName="DP" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="IDENTID" ColumnName="IDENTID" />
+                <ScalarProperty Name="idParametre" ColumnName="idParametre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Permissions">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="EstRapport" ColumnName="EstRapport" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="idParent" ColumnName="idParent" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IdPermission" ColumnName="IdPermission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Regions">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="idDistrict" ColumnName="idDistrict" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Sections">
+              <MappingFragment StoreEntitySet="Sections">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="idFederation" ColumnName="idFederation" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Utilisateurs">
+              <MappingFragment StoreEntitySet="Utilisateurs">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Prenoms" ColumnName="Prenoms" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="HasPermission" TypeName="GESIDENTITYModel.HasPermission" StoreEntitySet="HasPermission">
+            <EndProperty Name="Utilisateurs">
+              <ScalarProperty Name="idUtilisateur" ColumnName="IdUtilisateur" />
+            </EndProperty>
+            <EndProperty Name="Permissions">
+              <ScalarProperty Name="IdPermission" ColumnName="IdPermission" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="NaturePiece">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.NaturePiece">
+              <MappingFragment StoreEntitySet="NaturePiece">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organes">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Organes">
+              <MappingFragment StoreEntitySet="Organes">
+                <ScalarProperty Name="Cle" ColumnName="Cle" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Identifications">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.Identifications">
+              <MappingFragment StoreEntitySet="Identifications">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="DateAdhesion" ColumnName="DateAdhesion" />
+                <ScalarProperty Name="PosteDerniereFonc" ColumnName="PosteDerniereFonc" />
+                <ScalarProperty Name="DateDerniereFonc" ColumnName="DateDerniereFonc" />
+                <ScalarProperty Name="idDerniereFonction" ColumnName="idDerniereFonction" />
+                <ScalarProperty Name="DepuisLe" ColumnName="DepuisLe" />
+                <ScalarProperty Name="QualiteDe" ColumnName="QualiteDe" />
+                <ScalarProperty Name="idFonction" ColumnName="idFonction" />
+                <ScalarProperty Name="Structure" ColumnName="Structure" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile2" ColumnName="Mobile2" />
+                <ScalarProperty Name="Mobile1" ColumnName="Mobile1" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="idActiviteProfessionel" ColumnName="idActiviteProfessionel" />
+                <ScalarProperty Name="DateValidite" ColumnName="DateValidite" />
+                <ScalarProperty Name="NoPiece" ColumnName="NoPiece" />
+                <ScalarProperty Name="idNaturePiece" ColumnName="idNaturePiece" />
+                <ScalarProperty Name="Quartier" ColumnName="Quartier" />
+                <ScalarProperty Name="Domicile" ColumnName="Domicile" />
+                <ScalarProperty Name="LieuNaissance" ColumnName="LieuNaissance" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="Prenoms" ColumnName="Prenoms" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="DateIdent" ColumnName="DateIdent" />
+                <ScalarProperty Name="NoIdent" ColumnName="NoIdent" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="idBase" ColumnName="idBase" />
+                <ScalarProperty Name="idSection" ColumnName="idSection" />
+                <ScalarProperty Name="idFederation" ColumnName="idFederation" />
+                <ScalarProperty Name="idDepartement" ColumnName="idDepartement" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="idDistrict" ColumnName="idDistrict" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IDMilitants">
+            <EntityTypeMapping TypeName="GESIDENTITYModel.IDMilitants">
+              <MappingFragment StoreEntitySet="IDMilitants">
+                <ScalarProperty Name="IDENTID" ColumnName="IDENTID" />
+                <ScalarProperty Name="idFederation" ColumnName="idFederation" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="idDistrict" ColumnName="idDistrict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

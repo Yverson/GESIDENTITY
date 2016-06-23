@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report Width="29.3000001513958cm" Name="ListedesFactures" SnapGridSize="0.1cm" xmlns="http://schemas.telerik.com/reporting/2012/3.8">
+  <DataSources>
+    <SqlDataSource ConnectionString="GESIDENTITY" SelectCommand="select * from Organes where Etat = 'Actif'" Name="sqlDataSource6" />
+    <SqlDataSource ConnectionString="GESIDENTITY" SelectCommand="SELECT        ID, NoIdent, DateIdent, Nom, Prenoms, Sexe, DateNaissance, LieuNaissance, Domicile, Quartier, NoPiece, DateValidite, Telephone, Mobile1, Mobile2, Email, Structure, QualiteDe, DepuisLe, DateDerniereFonc, &#xD;&#xA;                         PosteDerniereFonc, DateAdhesion, Observations, Photo, Fonction, District, Federation, Region, NaturePiece, FonctionParti, Organe, Etat&#xD;&#xA;FROM            dbo.ListeMilitants&#xD;&#xA;WHERE        (Organe = @Organe) AND (Etat = 'ACTIF')" Name="sqlDataSource1">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@Organe">
+          <Value>
+            <String>= Parameters.Organe.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.60000008264899cm" Name="pageHeader">
+      <Items>
+        <TextBox Width="9.50000095367432cm" Height="0.99999988079071cm" Left="10.0954865381384cm" Top="0.299999848604206cm" Value="LISTE DES MILITANTS" Name="textBox3">
+          <Style BackgroundColor="238, 236, 225" TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <PageFooterSection Height="0.721441530187564cm" Name="pageFooter">
+      <Items>
+        <TextBox Width="21.0416623876808cm" Height="0.699999848604207cm" Left="8.19999989906947cm" Top="0cm" Value="=PageNumber" Name="pageInfoTextBox" StyleName="PageInfo">
+          <Style TextAlign="Right" />
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+    <ReportFooterSection Height="0.583433363898462cm" Name="reportFooter">
+      <Style Visible="False" />
+    </ReportFooterSection>
+    <DetailSection Height="0.800000000000001cm" Name="detail">
+      <Style Visible="False" />
+    </DetailSection>
+  </Items>
+  <StyleSheet>
+    <StyleRule>
+      <Style Color="Black">
+        <Font Name="Tahoma" Size="18pt" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Title" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="Black" VerticalAlign="Middle">
+        <Font Name="Tahoma" Size="10pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Caption" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style VerticalAlign="Middle">
+        <Font Name="Tahoma" Size="9pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Data" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style VerticalAlign="Middle">
+        <Font Name="Tahoma" Size="8pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="PageInfo" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <PageSettings>
+    <PageSettings PaperKind="A4" Landscape="True">
+      <Margins>
+        <MarginsU Left="2mm" Right="2mm" Top="10mm" Bottom="10mm" />
+      </Margins>
+    </PageSettings>
+  </PageSettings>
+  <Groups>
+    <Group Name="labelsGroup">
+      <GroupHeader>
+        <GroupHeaderSection PrintOnEveryPage="True" Height="1.69333318530189cm" Name="labelsGroupHeaderSection">
+          <Items>
+            <Table DataSourceName="sqlDataSource1" Width="29.2416691224865cm" Height="1.69333323512565cm" Left="0cm" Top="0cm" Name="table1">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.59548956278645cm" Height="0.89958338209103cm" Left="0cm" Top="0cm" Value="= Fields.NoIdent" CanGrow="True" Name="textBox15" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                          <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                          <Font Size="8pt" Bold="False" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.49999892945239cm" Height="0.89958338209103cm" Left="1.80000007152557cm" Top="0cm" Value="= Fields.District" Format="" CanGrow="True" Name="textBox8" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                          <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                          <Font Size="8pt" Bold="False" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.49999892945239cm" Height="0.89958338209103cm" Left="3.60019993782043cm" Top="0cm" Value="= Fields.Region" CanGrow="True" Name="textBox19" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                          <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                          <Font Size="8pt" Bold="False" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.49999892945239cm" Height="0.89958338209103cm" Left="6.40019941329956cm" Top="0cm" Value="= Fields.Federation" CanGrow="True" Name="textBox21" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                          <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                          <Font Size="8pt" Bold="False" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="6.87743673528021cm" Height="0.89958338209103cm" Left="11.4000988006592cm" Top="0cm" Value="= IsNull(Fields.Nom +' ' + Fields.Prenoms, Fields.Nom)" Format="" CanGrow="True" Name="textBox24" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                          <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                          <Font Size="8pt" Bold="False" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="1.2735422173302cm" Height="0.89958338209103cm" Left="12.4000968933105cm" Top="0cm" Value="= Fields.Sexe" Format="" CanGrow="True" Name="textBox23" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                          <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                          <Font Size="8pt" Bold="False" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="6" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.20624851493055cm" Height="0.89958338209103cm" Left="14.9671096801758cm" Top="0cm" Value="= Fields.DateNaissance" Format="{0:d}" CanGrow="True" Name="textBox11" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                          <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                          <Font Size="8pt" Bold="False" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="7" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="4.77812255739719cm" Height="0.89958338209103cm" Left="0cm" Top="0cm" Value="= Fields.Fonction" Name="textBox2" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <Font Size="8pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="8" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="4.01083231066992cm" Height="0.89958338209103cm" Left="0cm" Top="0cm" Value="= Fields.FonctionParti" Name="textBox5" StyleName="Data">
+                        <Style TextAlign="Center" VerticalAlign="Middle">
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                          <Font Size="8pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="2.59548978065386cm" />
+                  <Column Width="2.4999991473198cm" />
+                  <Column Width="2.4999991473198cm" />
+                  <Column Width="2.4999991473198cm" />
+                  <Column Width="6.87743760674985cm" />
+                  <Column Width="1.27354232626391cm" />
+                  <Column Width="2.20624873279796cm" />
+                  <Column Width="4.77812299313201cm" />
+                  <Column Width="4.01083274640474cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.899583281160502cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <RowGroups>
+                <TableGroup Name="detailTableGroup">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup Name="tableGroup">
+                  <ReportItem>
+                    <TextBox Width="2.59548960146227cm" Height="0.793750075313736cm" Left="0cm" Top="0cm" Value="No" CanGrow="True" Name="textBox14" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="tableGroup1">
+                  <ReportItem>
+                    <TextBox Width="2.49999918457271cm" Height="0.793750075313736cm" Left="1.80000007152557cm" Top="0cm" Value="District" CanGrow="True" Name="textBox16" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="tableGroup2">
+                  <ReportItem>
+                    <TextBox Width="2.49999918457271cm" Height="0.793750075313736cm" Left="3.60019993782043cm" Top="0cm" Value="Region" CanGrow="True" Name="textBox17" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group1">
+                  <ReportItem>
+                    <TextBox Width="2.49999918457271cm" Height="0.793750075313736cm" Left="6.40019941329956cm" Top="0cm" Value="Federation" CanGrow="True" Name="textBox18" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group">
+                  <ReportItem>
+                    <TextBox Width="6.87743596629237cm" Height="0.793750075313736cm" Left="11.4000988006592cm" Top="0cm" Value="Nom" CanGrow="True" Name="textBox20" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group3">
+                  <ReportItem>
+                    <TextBox Width="1.27354180057263cm" Height="0.793750075313736cm" Left="12.4000968933105cm" Top="0cm" Value="Sexe" CanGrow="True" Name="textBox22" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group2">
+                  <ReportItem>
+                    <TextBox Width="2.20624898354106cm" Height="0.793750075313736cm" Left="17.5341205596924cm" Top="0cm" Value="Date Naissance" CanGrow="True" Name="textBox10" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group4">
+                  <ReportItem>
+                    <TextBox Width="4.77812175712713cm" Height="0.793750075313736cm" Left="0cm" Top="0cm" Value="Activité Profossionel" Name="textBox1" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group5">
+                  <ReportItem>
+                    <TextBox Width="4.010832370436cm" Height="0.793750075313736cm" Left="0cm" Top="0cm" Value="Fonction du Parti" Name="textBox4" StyleName="Caption">
+                      <Style TextAlign="Center">
+                        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        <Font Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ColumnGroups>
+            </Table>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.700000050465265cm" Name="labelsGroupFooterSection">
+          <Style Visible="False" />
+        </GroupFooterSection>
+      </GroupFooter>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="Organe" Text="Organe" Visible="True" AllowBlank="False" AutoRefresh="True">
+      <AvailableValues DataSourceName="sqlDataSource6" DisplayMember="= Fields.Description" ValueMember="= Fields.Description" />
+    </ReportParameter>
+  </ReportParameters>
+</Report>

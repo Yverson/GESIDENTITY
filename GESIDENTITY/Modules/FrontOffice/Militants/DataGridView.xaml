@@ -1,0 +1,218 @@
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:local="clr-namespace:GESIDENTITY.IdentificationsModules.ViewModels"
+        xmlns:DataFilter="clr-namespace:Telerik.Windows.Controls.Data.DataFilter;assembly=Telerik.Windows.Controls.Data" x:Class="GESIDENTITY.IdentificationsModules.DataGridView"
+        mc:Ignorable="d" 
+        d:DesignHeight="300" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <local:IdentificationsViewModel x:Key="IdentificationsViewModel" />
+        <telerik:InvertedBooleanConverter x:Key="InverseBooleanConverter" />
+        <local:EntityObjectToInt x:Key="EntityObjectToInt" />
+        <!--EditorTemplate for the Name property.-->
+        <DataTemplate x:Key="dateFilterEditorTemplate">
+            <telerik:RadDateTimePicker SelectedValue="{Binding Value, FallbackValue=null, Mode=TwoWay}" MinWidth="100" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="ComboBoxEditor">
+            <telerik:RadComboBox FontFamily="Perpetua Titling MT" SelectedValue="{Binding Value, FallbackValue=null, Mode=TwoWay}"
+        		MinWidth="100" />
+        </DataTemplate>
+
+        <DataTemplate x:Key='DistrictsEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='Description' ItemsSource='{Binding AllDistricts, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+        <DataTemplate x:Key='RegionsEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='Description' ItemsSource='{Binding AllRegions, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+        <DataTemplate x:Key='DepartementsEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='Description' ItemsSource='{Binding AllDepartements, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+        <DataTemplate x:Key='FederationsEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='Description' ItemsSource='{Binding AllFederations, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+        <DataTemplate x:Key='SectionsEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='Description' ItemsSource='{Binding AllSections, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+        <DataTemplate x:Key='BasesEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='Description' ItemsSource='{Binding AllBases, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+        <DataTemplate x:Key='UtilisateursEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='FullName' ItemsSource='{Binding AllUtilisateurs, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+        <DataTemplate x:Key='FonctionsEditorTemplate'>
+            <telerik:RadComboBox FontFamily='Perpetua Titling MT' DisplayMemberPath='Description' ItemsSource='{Binding AllFonctions, Source={StaticResource IdentificationsViewModel}}' 
+SelectedValue='{Binding Value, Converter={StaticResource EntityObjectToInt}, FallbackValue=null, Mode=TwoWay}' MinWidth='100'/>
+        </DataTemplate>
+
+
+
+        <local:MyEditorTemplateSelector x:Key="MyEditorTemplateSelector">
+            <local:MyEditorTemplateSelector.EditorTemplateRules>
+                <local:EditorTemplateRule PropertyName='idDistrict' DataTemplate='{StaticResource DistrictsEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='idRegion' DataTemplate='{StaticResource RegionsEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='idDepartement' DataTemplate='{StaticResource DepartementsEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='idFederation' DataTemplate='{StaticResource FederationsEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='idSection' DataTemplate='{StaticResource SectionsEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='idBase' DataTemplate='{StaticResource BasesEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='idActiviteProfessionel' DataTemplate='{StaticResource FonctionsEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='idUtilisateur' DataTemplate='{StaticResource UtilisateursEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='DateNaissance' DataTemplate='{StaticResource dateFilterEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='DateValidite' DataTemplate='{StaticResource dateFilterEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='DateAdhesion' DataTemplate='{StaticResource dateFilterEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='DateIdent' DataTemplate='{StaticResource dateFilterEditorTemplate}' />
+                <local:EditorTemplateRule PropertyName='DateDerniereFonc' DataTemplate='{StaticResource dateFilterEditorTemplate}' />
+            </local:MyEditorTemplateSelector.EditorTemplateRules>
+        </local:MyEditorTemplateSelector>
+
+        <DataTemplate x:Key="MyTemplate">
+            <StackPanel>
+                <telerik:DataFormDataField Label='Code' DataMemberBinding='{Binding Code, Mode=TwoWay}' />
+                <telerik:DataFormDataField Label='Identifications' DataMemberBinding='{Binding Description, Mode=TwoWay}' />
+
+            </StackPanel>
+        </DataTemplate>
+
+        <local:Types x:Key="Types" />
+
+    </UserControl.Resources>
+    <Grid Name="Main" DataContext="{StaticResource IdentificationsViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="199*"/>
+        </Grid.RowDefinitions>
+
+        <telerik:RadExpander VerticalContentAlignment="Top"
+			telerik:AnimationManager.IsAnimationEnabled="True">
+            <telerik:RadExpander.Header>
+                <TextBlock Text="Filtre" />
+            </telerik:RadExpander.Header>
+            <telerik:RadDataFilter x:Name="radDataFilter" 
+				Source="{Binding AllData}"
+				EditorTemplateSelector="{StaticResource MyEditorTemplateSelector}"
+				MinHeight="200" MaxHeight="250"
+				Margin="1" AutoGenerateItemPropertyDefinitions="False">
+                <telerik:RadDataFilter.ItemPropertyDefinitions>
+                    <DataFilter:ItemPropertyDefinition DisplayName='NoIdent' PropertyName='NoIdent'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='DateIdent' PropertyName='DateIdent'  PropertyType='{Binding DateTime, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='District' PropertyName='idDistrict'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Region' PropertyName='idRegion'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Departement' PropertyName='idDepartement'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Federation' PropertyName='idFederation'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Section' PropertyName='idSection'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Base' PropertyName='idBase'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='idUtilisateur' PropertyName='idUtilisateur'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Nom' PropertyName='Nom'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Prenoms' PropertyName='Prenoms'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Sexe' PropertyName='Sexe'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='DateNaissance' PropertyName='DateNaissance'  PropertyType='{Binding DateTime, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='LieuNaissance' PropertyName='LieuNaissance'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Domicile' PropertyName='Domicile'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Quartier' PropertyName='Quartier'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='NaturePiece' PropertyName='NaturePiece'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='NoPiece' PropertyName='NoPiece'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='DateValidite' PropertyName='DateValidite'  PropertyType='{Binding DateTime, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Telephone' PropertyName='Telephone'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Mobile1' PropertyName='Mobile1'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Mobile2' PropertyName='Mobile2'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Email' PropertyName='Email'  PropertyType='{Binding String, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='Fonction' PropertyName='idActiviteProfessionel'  PropertyType='{Binding Int32, Source={StaticResource Types}}' />
+                    <DataFilter:ItemPropertyDefinition DisplayName='DateAdhesion' PropertyName='DateAdhesion'  PropertyType='{Binding DateTime, Source={StaticResource Types}}' />
+
+
+                </telerik:RadDataFilter.ItemPropertyDefinitions>
+            </telerik:RadDataFilter>
+
+        </telerik:RadExpander>
+
+        <Grid x:Name="mainGrid" Grid.Row="1">
+            <Grid Margin="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="96*" />
+                </Grid.RowDefinitions>
+
+                <telerik:RadDataPager x:Name="raddatapager" Grid.Row="0" 
+					PageSize="50" Margin="2"
+					Source="{Binding FilteredSource, ElementName=radDataFilter}" />
+                <StackPanel Orientation="Horizontal" Margin="0,2,118,2" HorizontalAlignment="Right">
+                    <TextBlock Text="PageSize:"  Margin="0,7,0,5"/>
+                    <telerik:RadNumericUpDown Value="{Binding PageSize, ElementName=raddatapager, Mode=TwoWay}"
+										  IsInteger="True"
+										  Minimum="10" Margin="0,5,0,5" />
+                </StackPanel>
+                <telerik:RadGridView x:Name="dataGrid" 
+					ShowGroupPanel="True"
+					RowIndicatorVisibility="Collapsed"
+					AutoGenerateColumns="False"
+					CanUserFreezeColumns="True"
+					IsBusy="{Binding IsBusy}"
+					Grid.Row="1"
+					Margin="2" ItemsSource="{Binding FilteredSource, ElementName=radDataFilter}" FrozenColumnCount="0" SelectedItem="{Binding SelectedData}" >
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewImageColumn Header="Photo"
+											 DataMemberBinding="{Binding Photo}"
+											 ImageHeight="35"
+											 ImageWidth="35"
+											 Width="45" />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding NoIdent}' Header='No' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding DateIdent}' Header='Date' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Districts.Description}' Header='District' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Regions.Description}' Header='Region' Width='150' IsReadOnly='True' />
+                        <!--<telerik:GridViewDataColumn DataMemberBinding='{Binding Departements.Description}' Header='Departement' Width='150' IsReadOnly='True' />-->
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Federations.Description}' Header='Federation' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Nom}' Header='Nom' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Prenoms}' Header='Prenoms' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Sexe}' Header='Sexe' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding DateNaissance}' Header='DateNaissance' Width='100' IsReadOnly='True' />                        
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding LieuNaissance}' Header='LieuNaissance' Width='200' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding NaturePiece.Description}' Header='NaturePiece' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding NoPiece}' Header='No Piece' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding DateValidite}' Header='Date Validite' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Quartier}' Header='Quartier' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Telephone}' Header='Telephone' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Mobile1}' Header='Mobile1' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Mobile2}' Header='Mobile2' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Email}' Header='Email' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Fonctions.Description}' Header='Activite Professionnelle' Width='200' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding FonctionParti.Description}' Header='Fonction du Parti' Width='200' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding QualiteDe}' Header='Depuis Le' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding DepuisLe}' Header='Depuis Le' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding FonctionParti1.Description}' Header='Derniere Fonction' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding DateDerniereFonc}' Header='Date Derniere Fonction' Width='100' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding PosteDerniereFonc}' Header='Poste Derniere Fonction' Width='200' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding DateAdhesion}' Header='Date Adhesion' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Observations}' Header='Observations' Width='150' IsReadOnly='True' />
+                        <telerik:GridViewDataColumn DataMemberBinding='{Binding Utilisateurs.FullName}' Header='Utilisateur' Width='150' IsReadOnly='True' />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </Grid>
+            <StackPanel Grid.Column="2" Margin="0,38,0,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                <telerik:RadButton x:Name="btnRefresh" ToolTip="Actualiser" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Click="btnRefresh_Click"  >
+                    <Image Source="/Images/CRUD/Reload.png" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btnAdd" ToolTip="Ajouter" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Click="btnAdd_Click" Visibility="Collapsed">
+                    <Image Source="/Images/CRUD/Add.png" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btnEdit" ToolTip="Modifier" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Click="btnEdit_Click" Visibility="Collapsed">
+                    <Image Source="/Images/CRUD/Edit.png" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btnDelete" ToolTip="Supprimer" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Click="btnDelete_Click" Visibility="Collapsed">
+                    <Image Source="/Images/CRUD/Minus.png" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </telerik:RadButton>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
